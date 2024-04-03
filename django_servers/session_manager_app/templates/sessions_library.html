@@ -1,0 +1,54 @@
+{%extends 'base.html' %}
+
+{% block content %}
+
+    <!-- Si utilizamos componentes de Bootstrap que requieran Javascript agregar estos tres archivos -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  
+    <div class="container-fluid" >
+        <div class="col-lg-12"  style="background-color:#ffffff">
+          <h4><p class="font-weight-light">Sessions Library</p></h4>
+          <table class="table table-striped table-sm">
+              <thead>
+                  <tr>
+                      <th>session_id</td>
+                      <th>description</td>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for fb in febe_parameters_list %}
+                      <tr>
+                        <td>{{ fb.session_id }}</td>
+                        <td>{{ fb.description }}</td>
+                          <td>
+                              <form action="upload_febe_items" method="post">
+                                  {% csrf_token %}
+                                  <input type="hidden" name="item_id" value="{{fb.id}}" />
+                                  <button type="submit" class="btn btn-dark btn-sm">U</button>
+                              </form>
+                          <td>
+                            <form action="remove_febe_items" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="item_id" value="{{fb.id}}" />
+                                <button type="submit" class="btn btn-danger btn-sm">D</button>
+                            </form>
+                        </td>
+                      </tr>
+                  {% endfor %}
+                </tbody>
+          </table>
+        </div>
+    </div>
+  
+  
+
+
+
+
+
+
+
+{% endblock %}

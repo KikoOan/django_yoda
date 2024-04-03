@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>Yebes 40m Configuración de Sesiones</title>
+
+    <!-- CSS only -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  
+    <!--<meta http-equiv="refresh" content="7"> -->
+    <style>.opacity-20 {
+      opacity: 0.2;
+      }
+    </style>
+    <div style="background-color:#0065A2;">
+      <div class="container">
+        <h5><p class="text-center", style="color:#ffffff">Astronomía y Aplicaciones Espaciales</p></h5>
+        <center><img class="img-fluid" src="https://rt40m.oan.es/img/observatory.png" alt="Astronomia y Aplicaciones Espaciales"></center>
+        <h6><p class="text-center", style="color:#ffffff">Observatorio de Yebes. Planner</p></h6>
+
+      </div>
+    </div>
+
+  </head>
+ 
+
+<body>
+
+    <div class="container">
+      {% block content %}
+  
+      {% endblock %}
+    </div>
+  
+</body>
+
+</html>

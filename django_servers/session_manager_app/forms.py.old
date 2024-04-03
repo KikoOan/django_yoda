@@ -1,0 +1,79 @@
+from django import forms
+from django.db import models
+from django.forms import ModelForm
+
+class SessionId(forms.Form):
+    session_id = forms.CharField(label='Session', max_length=5)
+
+class telescop_parameters(models.Model):
+
+    config_id = models.CharField(max_length=10)
+    frontends = models.CharField(max_length=10)
+    febename = models.CharField(max_length=10)
+    fecha   = models.DateField(auto_now=True)    
+
+    def __unicode__(self):
+        return self.config_id
+
+class telescop_parameters_form (ModelForm):
+
+    class Meta:
+        model = telescop_parameters
+        fields = ['config_id','frontends', 'febename']
+
+
+
+class sb_pol(models.Model):
+    pol_1 = models.BooleanField()
+    pol_2 = models.BooleanField()
+
+
+class sb_oscillator(models.Model):
+    min = models.FloatField()
+    max = models.FloatField()
+
+
+
+class febe_parameters(models.Model):
+
+    febe_id = models.CharField(max_length=10)
+    febe_id2 = models.TextChoices("FEBE_01", "FEBE_02")
+    #sb_pol_1   = sb_pol()
+    #sb_pol_2   = sb_pol()
+    #sb_pol_3   = sb_pol()
+    #sb_pol_4   = sb_pol()
+    #sb_pol_5   = sb_pol()
+    #sb_pol_6   = sb_pol()
+    #sb_pol_7   = sb_pol()
+    #sb_pol_8   = sb_pol()
+    #all_sb_pol = sb_pol()
+    #all_sb_pol = sb_pol()
+    #sb_osc_1   = sb_oscillator()
+    #sb_osc_2   = sb_oscillator()
+    #sb_osc_3   = sb_oscillator()
+    #sb_osc_4   = sb_oscillator()
+    #sb_osc_5   = sb_oscillator()
+    #sb_osc_6   = sb_oscillator()
+    #sb_osc_7   = sb_oscillator()
+    #sb_osc_8   = sb_oscillator()
+    #sb_osc_all = sb_oscillator()
+    #sb_osc_all = sb_oscillator()
+
+    def __unicode__(self):
+        return self.febe_id
+
+
+class febe_parameters_form (ModelForm):
+
+    class Meta:
+        model = febe_parameters
+        fields = ['febe_id', 'febe_id2' ]
+
+class select_febe_parameters_id_form (ModelForm):
+
+    class Meta:
+        model = febe_parameters
+        fields = ['febe_id']
+
+
+
